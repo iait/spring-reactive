@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Numeros</title>
+</head>
+<body>
+<div id="resultado"></div>
+<script type="text/javascript">
+
+    // Abre una conexión con el servidor para recibir eventos emitidos por éste.
+    // El servidor es el que informa al cliente cuando existen nuevos elementos en el flujo.
+    var source = new EventSource("numeros") // este es el endpoint de nuestro controller
+    source.addEventListener('message', function(e) {
+        document.getElementById("resultado").innerHTML += event.data + "<br>"
+    }, false);
+
+    source.addEventListener('open', function(e) {
+        console.log("INICIO");
+    }, false);
+
+    source.addEventListener('error', function(e) {
+        if (e.readyState == EventSource.CLOSED) {
+            console.log("close");
+        }
+    }, false);
+</script>
+</body>
+</html>
