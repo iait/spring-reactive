@@ -24,7 +24,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <packaging.type>jar</packaging.type>
         <mockito.version>3.1.0</mockito.version>
-        <springfox.version>2.9.2</springfox.version>
+        <springfox.version>2.10.0</springfox.version>
     </properties>
 
     <dependencies>
